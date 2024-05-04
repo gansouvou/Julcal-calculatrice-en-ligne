@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculatrice de julien</title>
+    <link rel="stylesheet" href="./cal.css">
+    <script src="cal.js"></script>
+</head>
+
+<body onload="alert('bienvenue!vous pouvez utiliser notre machine pour faire tous vos calculs.')">
+    
+    <ul class="menu">
+        <li><a href="./acceuil.html">Accueil</a></li>
+
+        <li>
+            <div class="mode" id="btn">
+                <span id="btntext">Dark</span>
+                <img src="./images/nuit1.png" id="btnimg">
+            </div>
+        </li>
+
+        <li>
+            <p>Partager avec</p>
+            <ul>
+                <li><a href="https://www.facebook.com/messages/">Facebook</a></li>
+                <li><a href="https://web.whatsapp.com/">Whatsapp</a></li>
+                <li><a href="https://mail.google.com/mail/u/O/#inbox/">Gmail</a></li>
+            </ul>
+        </li>
+
+        <li><a href="mailto:gansouvouhananiajulien@gmail.com">Nous écrire</a></li>
+    </ul>
+    
+    <div class="caculator">
+
+        <header>
+
+            <h1>Julcal</h1>
+
+            <div class="hanburgeur">
+                <div class="logo"></div>
+                <div class="logo"></div>
+                <div class="logo"></div>
+            </div>
+
+        </header>
+        
+        <main>
+            
+            <div class="ecran">
+                
+                <input type="text" value="" id="cal" placeholder="Faites votre calcul avec la machine de julien" />
+
+            </div>
+
+            <div class="touches">
+                
+                <input type="button" id="touche1" value="&larr;" onclick="cleanonebyone();" />
+
+                <input type="button" id="touche2" value="x²" onclick="carrée(); " />
+            
+                <input type="button" id="touche3" value="&radic;" onclick="racine()" ; />
+
+                <input type="button" id="touche4" value="ln" onclick="log()" ; />
+          
+                <input type="button" id="touche5" value="e" onclick="expo(); " />
+    
+                <input type="button" id="touche6" value="7" onclick="touche1(this);" />
+
+                <input type="button" id="touche7" value="8" onclick="touche1(this);" />
+
+                <input type="button" id="touche8" value="9" onclick="touche1(this);" />
+
+                <input type="button" id="touche9" value="1/x" onclick="inverse(this); " />
+
+                <input type="button" id="touche10" value="C" onclick="effacer()" />
+    
+                <input type="button" id="touche11" value="4" onclick="touche1(this); " />
+    
+                <input type="button" id="touche12" value="5" onclick="touche1(this); " />
+    
+                <input type="button" id="touche13" value="6" onclick="touche1(this); " />
+
+                <input type="button" id="touche14" value="*" onclick="touche1(this); " />
+
+                <input type="button" id="touche15" value="/" onclick="touche1(this);" />
+
+                <input type="button" id="touche16" value="1" onclick="touche1(this); " />
+            
+                <input type="button" id="touche17" value="2" onclick="touche1(this); " />
+            
+                <input type="button" id="touche18" value="3" onclick="touche1(this); " />
+
+                <input type="button" id="touche19" value="+" onclick="touche1(this); " />
+
+                <input type="button" id="touche20" value="-" onclick="touche1(this); " />
+    
+                <input type="button" id="touche21" value="0" onclick="touche1(this); " />
+            
+                <input type="button" id="touche22" value="." onclick="decimal( '.'); " />
+            
+                <input type="button" id="touche23" value="∏" onclick="py(this);" />
+
+                <input type="button" id="touche24" value="%" onclick="pourcentage(); " />
+
+                <input type="button" id="touche25" value="=" onclick=" resultat(); " />
+
+            </div>
+
+        </main>
+
+        <footer>
+
+            <input type="button" id="touche26" value="quiter" onclick="fermer(); ">
+
+        </footer>
+
+    </div>
+
+   <script>
+
+        let btn = document.getElementById("btn");
+        let btntext = document.getElementById("btntext");
+        let btnimg = document.getElementById("btnimg");
+
+
+        btn.onclick = function(){
+            document.body.classList.toggle("dark-theme");
+            if(document.body.classList.contains("dark-theme")){
+                btntext.innerHTML = "Light";
+                btnimg.src = "./images/jour1.png";
+            }else{
+                btntext.innerHTML = "Dark";
+                btnimg.src = "./images/nuit1.png";
+            }
+        } 
+
+        var logo = document.querySelector('.hanburgeur');
+        var menu = document.querySelector('.menu');
+
+        logo.addEventListener('click', function(){
+            menu.classList.toggle('showmenu')
+        });
+    </script>
+
+</body>
+</html>
