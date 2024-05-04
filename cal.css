@@ -175,7 +175,7 @@ footer input{
     background: rgba(210, 210, 119, 0.246);
     padding: 5px;
     cursor: pointer;
-    transition: 1s;
+    transition: 1.1s;
 }
 
 footer input:hover{
