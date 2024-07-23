@@ -5,144 +5,270 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Julcal-calculatrice en ligne</title>
     <link rel="stylesheet" href="./cal.css">
-    <script src="cal.js"></script>
 </head>
 
-<body onload="alert('bienvenue!vous pouvez utiliser notre machine pour faire tous vos calculs.')">
+<!--<body onload="alert('Bienvenue! vous pouvez utiliser notre machine pour faire tous vos calculs.')">
+-->
+<body>
+        
+    <div class="acceuil">
+
+        <div class="emoj">
+            <p>👋</p>
+        </div>
+            
+        <h3>Welcome to Julcal !</h3>
+
+        <p> We appreciate your choice to use our machine. <br> We believe you are like it. </p>
     
-    <ul class="menu">
-        <li><a href="./acceuil.html">Accueil</a></li>
+        <div class="start"><button>LET'S START</button></div>
+    </div>
 
-        <li>
-            <div class="mode" id="btn">
-                <span id="btntext">Dark</span>
-                <img src="./images/nuit1.png" id="btnimg">
-            </div>
-        </li>
-
-        <li>
-            <p>Partager avec</p>
-            <ul>
-                <li><a href="https://www.facebook.com/messages/">Facebook</a></li>
-                <li><a href="https://web.whatsapp.com/">Whatsapp</a></li>
-                <li><a href="https://mail.google.com/mail/u/O/#inbox/">Gmail</a></li>
-            </ul>
-        </li>
-
-        <li><a href="mailto:gansouvouhananiajulien@gmail.com">Nous écrire</a></li>
-    </ul>
-    
     <div class="caculator">
 
         <header>
 
             <h1>Julcal</h1>
 
-            <div class="hanburgeur">
-                <div class="logo"></div>
-                <div class="logo"></div>
-                <div class="logo"></div>
+            <div class="clock"></div>
+
+            <ul class="menu">
+                <li class="ac"><p>Accueil</p></a></li>
+
+                <li class="ca"><p>Calculatrice</p></li>
+        
+                <li class="fa"><p>Fonctions Avançées</p></li>
+        
+                <!--<li class="dev"><p>Jouer à la devinette</p></li>-->
+
+                <li> <div class="mode" id="btn"> <span id="btntext">Dark</span> <img src="./images/nuit1.png" id="btnimg"> </div> </li>
+
+                <!-- <li> <p>Partager avec</p> </li> -->
+        
+                <li><a href="mailto:gansouvouhananiajulien@gmail.com">Nous écrire</a></li>
+        
+                <li class="close" onclick=" window.close()" > <p>quitter</p></li>
+            </ul>
+
+            <div class="menu1">
+                <div class="menu2"></div>
+                <div class="menu2"></div>
+                <div class="menu2"></div>
+                <div class="menu2"></div>
             </div>
 
         </header>
         
-        <main>
+        <main id="main">
             
-            <div class="ecran">
+            <div class="ecran" id="ecran">
                 
-                <input type="text" value="" id="cal" placeholder="Faites votre calcul avec la machine de julien" />
+                <input type="text" value="" id="cal" name="cal" placeholder="Faites votre calcul avec la machine de julien" />
 
             </div>
 
             <div class="touches">
+
+                <input type="button" value="2nd" class="op eff" id="op1">
+
+                <input type="button" value="2nd" class="news eff" id="news1">
+
+                <input type="button" value="&larr;" onclick="cleanonebyone();" />
+
+                <input type="button" value="(" onclick="cal.value += '(' ">
                 
-                <input type="button" id="touche1" value="&larr;" onclick="cleanonebyone();" />
+                <input type="button" value=")" onclick="cal.value += ')' ">
 
-                <input type="button" id="touche2" value="x²" onclick="carrée(); " />
+                <input type="button" value="AC" class="eff" onclick="cal.value= ' ' " />
+
+                <input type="button" value="x²" class="op" onclick="cal.value = Math.pow(eval(cal.value),2)">
+
+                <input type="button" value="x³" class="news" onclick="cal.value = Math.pow(eval(cal.value),3)">
+
+                <input type="button" value="&radic;" class="op" onclick="cal.value = Math.sqrt(eval(cal.value))">
+
+                <input type="button" value="³&radic;" class="news" onclick="cal.value = Math.cbrt(eval(cal.value))">                
+                     
+                <input type="button" value="sin" class="op" onclick="cal.value = Math.sin(transformeDegreRadian(eval(cal.value)))">
+                
+                <input type="button" value="cos" class="op" onclick="cal.value = Math.cos(transformeDegreRadian(eval(cal.value))) ">
+                
+                <input type="button" value="tan" class="op" onclick="cal.value = Math.tan(transformeDegreRadian(eval(cal.value))) ">
+
+                <input type="button" value="sin-¹" class="news" onclick=" cal.value = transformeRadianDegre(Math.asin(eval(cal.value)))">
+                
+                <input type="button" value="cos-¹" class="news" onclick="cal.value = transformeRadianDegre(Math.acos(eval(cal.value))) ">
+                
+                <input type="button" value="tan-¹" class="news" onclick=" cal.value = transformeRadianDegre(Math.atan(eval(cal.value))) ">
             
-                <input type="button" id="touche3" value="&radic;" onclick="racine()" ; />
+                <input type="button" value="ln" class="op" onclick=" cal.value = Math.log(eval(cal.value)) " />
 
-                <input type="button" id="touche4" value="ln" onclick="log()" ; />
+                <input type="button" value="log" class="news" onclick=" cal.value = Math.log10(eval(cal.value))">
           
-                <input type="button" id="touche5" value="e" onclick="expo(); " />
-    
-                <input type="button" id="touche6" value="7" onclick="touche1(this);" />
+                <input type="button" value="e" class="op" onclick="cal.value = Math.exp(eval(cal.value)) " />
 
-                <input type="button" id="touche7" value="8" onclick="touche1(this);" />
+                <input type="button" value="abs" class="news" onclick="cal.value = Math.abs(eval(cal.value)) " />
 
-                <input type="button" id="touche8" value="9" onclick="touche1(this);" />
+                <input type="button" value="sinh" class="op" onclick="cal.value = Math.sinh(transformeDegreRadian(eval(cal.value)))">
+                
+                <input type="button" value="cosh" class="op" onclick="cal.value = Math.cosh(transformeDegreRadian(eval(cal.value)))">
 
-                <input type="button" id="touche9" value="1/x" onclick="inverse(this); " />
+                <input type="button" value="tanh" class="op" onclick="cal.value = Math.tanh(transformeDegreRadian(eval(cal.value)))">
 
-                <input type="button" id="touche10" value="C" onclick="effacer()" />
-    
-                <input type="button" id="touche11" value="4" onclick="touche1(this); " />
-    
-                <input type="button" id="touche12" value="5" onclick="touche1(this); " />
-    
-                <input type="button" id="touche13" value="6" onclick="touche1(this); " />
+                <input type="button" value="sinh-¹" class="news" onclick=" cal.value = transformeRadianDegre(Math.asinh(eval(cal.value)))">
+                
+                <input type="button" value="cosh-¹" class="news" onclick="cal.value = transformeRadianDegre(Math.acosh(eval(cal.value))) ">
+                
+                <input type="button" value="tanh-¹" class="news" onclick=" cal.value = transformeRadianDegre(Math.atanh(eval(cal.value))) ">
+ 
+                <input type="button" value="7" onclick="cal.value += '7' " />
 
-                <input type="button" id="touche14" value="*" onclick="touche1(this); " />
+                <input type="button" value="8" onclick="cal.value += '8'" />
 
-                <input type="button" id="touche15" value="/" onclick="touche1(this);" />
+                <input type="button" value="9" onclick="cal.value += '9'" />
 
-                <input type="button" id="touche16" value="1" onclick="touche1(this); " />
+                <input type="button" value="n&excl;" onclick="cal.value = facto(cal.value)">
+
+                <input type="button" value="1/x" class="op" onclick=" cal.value = 1 / (eval(cal.value)) " />
+
+                <input type="button" value="%" class="news" onclick="cal.value = ((eval(cal.value))/100)">
             
-                <input type="button" id="touche17" value="2" onclick="touche1(this); " />
-            
-                <input type="button" id="touche18" value="3" onclick="touche1(this); " />
-
-                <input type="button" id="touche19" value="+" onclick="touche1(this); " />
-
-                <input type="button" id="touche20" value="-" onclick="touche1(this); " />
+                <input type="button" value="4" onclick="cal.value += '4' " />
     
-                <input type="button" id="touche21" value="0" onclick="touche1(this); " />
-            
-                <input type="button" id="touche22" value="." onclick="decimal( '.'); " />
-            
-                <input type="button" id="touche23" value="∏" onclick="py(this);" />
+                <input type="button" value="5" onclick="cal.value += '5' " />
+    
+                <input type="button" value="6" onclick="cal.value += '6' " />
 
-                <input type="button" id="touche24" value="%" onclick="pourcentage(); " />
+                <input type="button" value="×" onclick="cal.value += '*' " />
+                
+                <input type="button" value="÷" onclick="cal.value += '/'" />
+                
+                <input type="button" value="1" onclick="cal.value += '1' " />
+            
+                <input type="button" value="2" onclick="cal.value += '2' " />
+            
+                <input type="button" value="3" onclick="cal.value += '3' " />
 
-                <input type="button" id="touche25" value="=" onclick=" resultat(); " />
+                <input type="button" value="+" onclick="cal.value += '+' " />
+
+                <input type="button" value="-" onclick="cal.value += '-' " />
+ 
+                <input type="button" value="0" onclick="cal.value += '0' " />
+        
+                <input type="button" value="." onclick="cal.value += '.' " />
+            
+                <input type="button" value="EXP" onclick="cal.value = Math.pow(10, eval(cal.value))">
+
+                <input type="button" value="&pi;" onclick="cal.value += Math.PI " />
+
+                <input type="button" value="=" class="eff op" onclick=" egal() " />
+
+                <input type="button" value="ANS" class="eff news" onclick=" Ans()">
+            </div> 
+
+            <div class="plus">
+    
+                <div class="titre">
+                    <h1>Fonctions Avancée</h1>
+                    <input type="button" value="AC" class="eff" onclick="cal.value= ' ' " />
+                </div>
+
+                <ul>
+                    
+                <li>
+                    <div class="enter">
+                        <input id="num1" type="number" placeholder="nombre 1 : n">
+                        <input id="num2" type="number" placeholder="nombre 2 : k">
+                    </div>
+        
+                    <div class="calcul">
+                        <input type="button" value="n^k" onclick="cal.value=Math.pow(num1.value, num2.value)">
+                        <input type="button" value="C(n,k)" onclick="cal.value = combo(num1.value, num2.value)">
+                        <input type="button" value="A(n,k)" onclick="cal.value = permuto(num1.value,num2.value)">
+                    </div>
+                </li>
+    
+                <li>
+                    <div class="enter">
+                        <input id="pR" type="number" placeholder="Partie réelle de z">
+                        <input id="pI" type="number" placeholder="Partie imaginaire">
+                    </div>
+
+                    <div class="calcul">
+                        <input type="button" value="Module de z" onclick="cal.value = modulo(pR.value,pI.value)" >
+                        <input type="button" value="argument de z" onclick="cal.value = argo(pR.value,pI.value)">
+                    </div>
+                </li>
+    
+                <li>
+                    <div class="enter">
+                        <input id="fonction" type="text" placeholder="Fonction : ax^2 + bx + c">
+                    </div>
+
+                    <div class="calcul">
+                        <input type="button" value="racines de f" onclick="cal.value = calculateRoots(fonction.value)">
+                        <input type="button" value="Dérivée de f" onclick="cal.value = derive(fonction.value)">
+                        <input type="button" value="Primitive de f" onclick="cal.value = Primitive(fonction.value)">
+                    </div>
+                </li>
+
+                <li>
+                    <div class="enter">
+                        <textarea name="" id="mA" placeholder="Matrice A : 1,2;3,4 "></textarea>
+                        <textarea name="" id="mB" placeholder="Matrice B : 7,8;9,5"></textarea>
+                    </div>
+
+                    <div class="calcul">
+                        <input type="button" value="transposée A" onclick="cal.value = calculTransposeMatrix(mA.value)">
+                        <input type="button" value="déterminant A" onclick="cal.value = calculDeterminantMatrix(mA.value)">
+                        <input type="button" value="inverse A" onclick="cal.value = calculInverseMatrix(mA.value)">
+                    </div>
+
+                    <div class="calcul">
+                        <input type="button" value="somme A + B"  onclick="cal.value = calculAddMatrix(mA.value, mB.value)">
+                        <input type="button" value="produit A &bull; B"  onclick="cal.value = calculMultiplyMatrix(mA.value, mB.value)">
+                        <input type="button" value="A &bull; X = B"  onclick="cal.value = calculResolveEquation(mA.value, mB.value)">
+                    </div>
+        
+                </li>
+
+                <li>
+                    <div class="calcul">
+                        <input type="date" name="" id="userdate">
+                        <input type="button" value="Age" class="eff age" onclick="cal.value = calculateAge(userdate)">
+                    </div>
+                </li>
+            
+                </ul>
 
             </div>
 
         </main>
+    <!--
+        <div class="jeu" id="jeu">
 
-        <footer>
-
-            <input type="button" id="touche26" value="quiter" onclick="fermer(); ">
-
-        </footer>
-
+            <h2>Devinette</h2>
+            <p>Devinez un nombre entre 1 et 100</p>
+            <p id="msg"></p>
+            <form action="" id="form">
+                <input type="number" name="" id="iptjeu">
+                <button type="button" id="btnjeu">Go</button>
+            </form>
+            <div class="link">
+                <input type="button" value="reprendre" id="replay" >
+            </div>
+            
+        </div>
+    -->
     </div>
-
-   <script>
-
-        let btn = document.getElementById("btn");
-        let btntext = document.getElementById("btntext");
-        let btnimg = document.getElementById("btnimg");
-
-
-        btn.onclick = function(){
-            document.body.classList.toggle("dark-theme");
-            if(document.body.classList.contains("dark-theme")){
-                btntext.innerHTML = "Light";
-                btnimg.src = "./images/jour1.png";
-            }else{
-                btntext.innerHTML = "Dark";
-                btnimg.src = "./images/nuit1.png";
-            }
-        } 
-
-        var logo = document.querySelector('.hanburgeur');
-        var menu = document.querySelector('.menu');
-
-        logo.addEventListener('click', function(){
-            menu.classList.toggle('showmenu')
-        });
-    </script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/10.0.0/math.min.js"></script>
+   
+    <script src="cal.js"></script>
 
 </body>
 </html>
+
+<!--
+     menu : partager avec 
+-->
