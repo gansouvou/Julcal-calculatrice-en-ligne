@@ -155,20 +155,21 @@ function combo(n,r) {
     if ( n < r || n < 0 || r < 0) {
         return "Entrée invalide";
     }
-    return math.combinations(n, r);
+    return permuto(n,r) / facto(r)
+    // return math.combinations(n, r);
 } 
 
 function modulo(n,r) {
-    //return Math.sqrt(n*n , r*r);
-    let z = math.complex(n, r);
-    return math.abs(z);
+     return Math.sqrt(n*n + r*r);
+    // let z = math.complex(n, r);
+    // return math.abs(z);
 }
 
 function transformeDegreRadian(a){
-    return (a * math.PI)/180;
+    return (a * Math.PI)/180;
 }
 function transformeRadianDegre(a){
-    return (180*a)/math.PI;
+    return (180*a)/Math.PI;
 }
 
 function argo(n,r){
@@ -454,7 +455,7 @@ function calculResolveEquation(A, B) {
             return new Date(year, month, 0).getDate();
         }
 
-
+s
 /* jeu */
 /*     
 const btnjeu = document.getElementById('btnjeu'),
