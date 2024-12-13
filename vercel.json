@@ -1,0 +1,7 @@
+{
+    "routes":[
+        {"src":"/","dest":"/cal.html"},
+        {"src":"/carte","dest":"/carte.html"}
+    ]
+
+}

@@ -455,7 +455,6 @@ function calculResolveEquation(A, B) {
             return new Date(year, month, 0).getDate();
         }
 
-s
 /* jeu */
 /*     
 const btnjeu = document.getElementById('btnjeu'),
