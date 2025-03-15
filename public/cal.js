@@ -1,113 +1,30 @@
-let acceuil = document.querySelector(".acceuil");
+
 let calculator = document.querySelector(".caculator");
-let startbtn = document.querySelector(".start");
-const ac = document.querySelector(".ac");
 
 var menu1 = document.querySelector('.menu1');
 var menu = document.querySelector('.menu');
 
-let ca = document.querySelector(".ca");
-let fa = document.querySelector(".fa");
 //let dev = document.querySelector(".dev");
 const main = document.getElementById("main");
 let touches = document.querySelector(".touches");
-let plus = document.querySelector(".plus");
+
+
+// let plus = document.querySelector(".plus");
+
+/*
 //let jeu = document.querySelector(".jeu");
 
 let btn = document.getElementById("btn");
 let btntext = document.getElementById("btntext");
 let btnimg = document.getElementById("btnimg");
-
-const horloge = document.querySelector(".clock");
-
-const opera = document.querySelectorAll(".op");
-const newopera = document.querySelectorAll(".news");
-const opTouche = document.getElementById("op1");
-const newTouche = document.getElementById("news1");
+*/
 
 const ecran = document.getElementById("cal");
 
-// acceuil
-startbtn.onclick = function () {
-    acceuil.style.display="none";
-    calculator.style.display="block";
-}
-ac.onclick = function () {
-    acceuil.style.display="flex";
-    calculator.style.display="none";
-}
 //menu
 menu1.addEventListener('click', function(){
     menu.classList.toggle('showmenu')
 });
-
-// calculatrice ou fontion avancée ou jeu
-fa.onclick = function(){
-    main.style.display="block";
-    touches.style.display="none";
-    //jeu.style.display="none";
-    plus.style.display="block";
-    main.style.height="480px";
-}
-ca.onclick = function(){
-    main.style.display="block";
-    touches.style.display="grid";
-    plus.style.display="none";
-    //jeu.style.display="none";
-    main.style.height="450px";
-}
-/*dev.onclick = function(){
-    main.style.display="none";
-    jeu.style.display="block";
-}*/
-
-// mode
-btn.onclick = function(){
-    document.body.classList.toggle("dark-theme");
-    if(document.body.classList.contains("dark-theme")){
-        btntext.innerHTML = "Light";
-        btnimg.src = "./images/jour1.png";
-    }else{
-        btntext.innerHTML = "Dark";
-        btnimg.src = "./images/nuit1.png";
-    }
-} 
-
-// horloge
-horloge.addEventListener('onLoad', time) 
-function time(){
-    let date = new Date();
-    let heures = date.getHours();
-    let minutes = date.getMinutes();
-
-    if(heures == 0){ h=24; }
-
-    heures = (heures < 10) ? "0" + heures : heures;
-    minutes = (minutes < 10) ? "0" + minutes : minutes;
-
-    let time = `${heures} : ${minutes}`
-    horloge.innerText = time;
-}
-setInterval(time, 1000)
-
-// seconde fonction
-opTouche.addEventListener('click', function(){
-        for ( const op of opera){
-            op.style.display="none";
-        }
-        for ( const news of newopera){
-            news.style.display="block";
-        }
-});
-newTouche.addEventListener('click', function(){
-    for ( const news of newopera){
-        news.style.display="none";
-    }
-    for ( const op of opera){
-        op.style.display="block";
-    }
-});
-
 
 // ecran
 
@@ -135,6 +52,9 @@ function Ans() {
 
 // definition des fonctions 
 
+
+// denombrement
+
 function facto(n){
     if(n == 0){
         return 1;
@@ -159,27 +79,67 @@ function combo(n,r) {
     // return math.combinations(n, r);
 } 
 
-function modulo(n,r) {
-     return Math.sqrt(n*n + r*r);
-    // let z = math.complex(n, r);
-    // return math.abs(z);
+
+
+// probabilité
+
+function moyenne(suite) {
+    var sum = 0;
+    const l = suite.length;
+    for (let i = 0; i < l; i += 1) {
+        sum += suite[i];
+    }
+    return sum/l;
 }
+
+function variance(arr) {
+    const m = moyenne(arr);
+    const squaredDiffs = arr.map(val => Math.pow(val - m, 2));
+    return moyenne(squaredDiffs);
+}
+
+function ecart(arr) {
+    return Math.sqrt(variance(arr));
+}
+
+
+// nombre complexes
+
+function modulo(complexNumber) {
+    // return Math.sqrt(n*n + r*r);
+     let z = math.complex(complexNumber);
+     return math.abs(z);
+}
+
+function argo(complexNumber){
+    let z = math.complex(complexNumber);
+    return transformeRadianDegre(math.arg(z));
+}
+
+function conjugo(complexNumber){
+    let z = math.complex(complexNumber);
+    return math.conj(z);
+}
+
+
+// conversion
 
 function transformeDegreRadian(a){
     return (a * Math.PI)/180;
 }
+
 function transformeRadianDegre(a){
     return (180*a)/Math.PI;
 }
 
-function argo(n,r){
-    let z = math.complex(n, r);
-    return transformeRadianDegre(math.arg(z));
-}
+
+
+// polynome
 
 function derive(f) {
     return math.derivative(f,'x').toString();
 }
+
 /*
 function primitive(f) {
     return math.integral(f, 'x').toString();
@@ -205,9 +165,13 @@ function parsePolynomial(polynomial) {
 function Primitive(A) {
     const polynomial = parsePolynomial(A);
     const primitive = polynomial.map(term => {
-        const newCoefficient = term.coefficient / (term.power + 1);
+        // const newCoefficient = term.coefficient / (term.power + 1);
         const newPower = term.power + 1;
-        return `${newCoefficient}x^${newPower}`;
+        if(newPower == 1){
+            return `${term.coefficient}x`;
+        }
+        return `${term.coefficient}/${newPower}x^${newPower}`;
+        //return `${newCoefficient}x^${newPower}`;
     }).join(' + ');
 
     return `${primitive} + C`
@@ -242,17 +206,16 @@ function findRoots(coefficients) {
         } else if (discriminant === 0) {
             return [-b / (2 * a)];
         } else if(discriminant < 0){
-            return [ "pas de racine" ];
+            return [ "pas de racine réelles" ];
         }
     }
 
     else{
-        return [ "votre polynôme est de degré supérieur à 2"]
-    }
+       return [ "polynôme de degré supérieur à 2"]
     
-  
+    /*
     // Utilisation de la méthode de Newton pour des polynômes de degré supérieur
-    /* Méthode à revoir 
+    // Méthode à revoir 
     const maxIterations = 1000;
     const tolerance = 1e-7;
     const derivative = coefficients.slice(0, -1).map((c, i) => c * (coefficients.length - 1 - i));
@@ -283,8 +246,12 @@ function findRoots(coefficients) {
         coefficients = deflatePolynomial(coefficients, root);
     }
     return roots;
+    
     */
+   }
+    
 }
+
 /*
 function deflatePolynomial(coefficients, root) {
     const newCoefficients = [];
@@ -405,6 +372,7 @@ function calculResolveEquation(A, B) {
     return resolveEquation(matrixA, matrixB);
 }
 
+
 // calcul d'âge
 
         function calculateAge(userdate){
@@ -455,55 +423,10 @@ function calculResolveEquation(A, B) {
             return new Date(year, month, 0).getDate();
         }
 
-/* jeu */
-/*     
-const btnjeu = document.getElementById('btnjeu'),
-    form = document.getElementById('form'),
-    msg = document.getElementById('msg'),
-    replay = document.getElementById('replay');
-    
-const a = Math.floor(Math.random() * 100);
-let t = 10;
-
-btnjeu.onclick = function(){
-    const b = document.getElementById('iptjeu').value;
-    if(b != ""){
-        if(b < a){
-            msg.innerText = `le nombre est plus grand que ${b}`;
-            msg.style.color = "#999";
-        }
-        else if(b > a){
-            msg.innerText = `le nombre est plus petit que ${b}`;
-            msg.style.color = "#999";
-        }
-
-        if(t == 0){
-            msg.innerText = `Vous avez perdu,le nombre etait ${a}`;
-            msg.style.color = "red";
-            form.style.display = "none";
-            replay.style.display = "block" ;                   
-        }
-        t --;
-
-        if(b == a){
-            msg.innerText = `Bravo, vous l'avez trouvé : ${a}`;
-            msg.style.color = "green";
-            form.style.display = "none";
-            replay.style.display = "block";
-        }
-    }
-    else{
-        msg.innerText = "le champs est vide";
-        msg.style.color = "red";
-    }
-}
-*/
-
 
 // a faire 
 
 /*
-reinitialiser le jeu
 
 calcul de racines de polynome de degré > 2?
 

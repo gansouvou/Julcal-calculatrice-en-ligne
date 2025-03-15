@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Julcal-calculatrice en ligne</title>
+    <link rel="stylesheet" href="./cal.css">
+</head>
+
+<!--<body onload="alert('Bienvenue! vous pouvez utiliser notre machine pour faire tous vos calculs.')">
+-->
+<body>
+
+    <div class="caculator">
+    
+        <header>
+
+            <h1 class="h1responsive">la Calculatrice de julien</h1>
+
+            <div class="clock"></div>
+
+            <ul class="menu">
+                <li><h1>Julcal</h1></li> 
+
+                <li><a href="index.html">Calculatrice</a></li>
+                <li><a href="trigo.html">Trigonométrie</a></li>
+                <li><a href="den.html">Dénombrement</a></li>
+                <li><a href="complex.html">Nombres complexes</a></li>
+                <li><a href="fonction.html">Fonctions</a></li>
+                <li><a href="matrice.html">Matrices</a></li>
+                <li><a href="age.html">calcul d'âge</a></li>
+                
+                <li> <a href="carte.html" target="_blank">À propos</a></li>
+        
+                <li><a href="mailto:gansouvouhananiajulien@gmail.com" target="_blank">Nous écrire</a></li>
+        
+                <li class="close" onclick=" window.close()" > <p>quitter</p></li>
+            </ul>
+
+            <div class="menu1">
+                <div class="menu2"></div>
+                <div class="menu2"></div>
+                <div class="menu2"></div>
+                <div class="menu2"></div>
+                <div class="menu2"></div>
+            </div>
+
+        </header>
+    
+        <main id="main">
+            
+            <div class="ecran" id="ecran">
+
+                <div class="titre"> <h1>Calculatrice simple </h1> </div>
+                
+                <input type="text" value="" id="cal" name="cal" placeholder="Faites votre calcul avec la machine de julien" />
+
+            </div>
+
+            <div class="touches">
+
+                <input type="button" value="&larr;" class="sup" onclick="cleanonebyone();" />
+
+                <input type="button" value="(" onclick="cal.value += '(' ">
+                
+                <input type="button" value=")" onclick="cal.value += ')' ">
+
+                <input type="button" value="e" onclick="cal.value = Math.exp(eval(cal.value)) " />
+
+                <input type="button" value="AC" class="eff" onclick="cal.value= ' ' " />
+
+                <input type="button" value="x²" onclick="cal.value = Math.pow(eval(cal.value),2)">
+
+                <input type="button" value="&radic;" onclick="cal.value = Math.sqrt(eval(cal.value))">
+
+                <input type="button" value="n&excl;" onclick="cal.value = facto(cal.value)">              
+                     
+                <!---
+
+                 <input type="button" value="EXP" onclick="cal.value = Math.pow(10, eval(cal.value))">
+
+                -->
+                <input type="button" value="ln" onclick=" cal.value = Math.log(eval(cal.value)) " />
+
+                <input type="button" value="log" onclick=" cal.value = Math.log10(eval(cal.value))">
+ 
+                <input type="button" value="7" onclick="cal.value += '7' " />
+
+                <input type="button" value="8" onclick="cal.value += '8'" />
+
+                <input type="button" value="9" onclick="cal.value += '9'" />
+
+                <input type="button" value="%" onclick="cal.value = ((eval(cal.value))/100)">
+
+                <input type="button" value="1/x" onclick=" cal.value = 1 / (eval(cal.value)) " />
+                
+                <input type="button" value="4" onclick="cal.value += '4' " />
+    
+                <input type="button" value="5" onclick="cal.value += '5' " />
+    
+                <input type="button" value="6" onclick="cal.value += '6' " />
+
+                <input type="button" value="×" onclick="cal.value += '*' " />
+                
+                <input type="button" value="÷" onclick="cal.value += '/'" />
+                
+                <input type="button" value="1" onclick="cal.value += '1' " />
+            
+                <input type="button" value="2" onclick="cal.value += '2' " />
+            
+                <input type="button" value="3" onclick="cal.value += '3' " />
+
+                <input type="button" value="+" onclick="cal.value += '+' " />
+
+                <input type="button" value="-" onclick="cal.value += '-' " />
+ 
+                <input type="button" value="0" onclick="cal.value += '0' " />
+        
+                <input type="button" value="." onclick="cal.value += '.' " />
+            
+                
+                <input type="button" value="&pi;" onclick="cal.value += Math.PI " />
+
+                <input type="button" value="=" class="eff" onclick=" egal() " />
+
+                <input type="button" value="ANS" class="eff" onclick=" Ans()">
+            </div> 
+        
+
+
+        </main>
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/10.0.0/math.min.js"></script>
+   
+    <script src="cal.js"></script>
+
+</body>
+</html>

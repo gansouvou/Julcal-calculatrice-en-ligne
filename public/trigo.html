@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Julcal-calculatrice en ligne</title>
+    <link rel="stylesheet" href="./cal.css">
+</head>
+
+<!--<body onload="alert('Bienvenue! vous pouvez utiliser notre machine pour faire tous vos calculs.')">
+-->
+<body>
+
+    <div class="caculator">
+    
+        <header>
+
+            <h1>Julcal</h1>
+
+            <div class="clock"></div>
+
+            <ul class="menu">
+                <li><h1>Julcal</h1></li> 
+
+                <li><a href="index.html">Calculatrice</a></li>
+                <li><a href="trigo.html">Trigonométrie</a></li>
+                <li><a href="den.html">Dénombrement</a></li>
+                <li><a href="complex.html">Nombres complexes</a></li>
+                <li><a href="fonction.html">Fonctions</a></li>
+                <li><a href="matrice.html">Matrices</a></li>
+                <li><a href="age.html">calcul d'âge</a></li>
+                
+
+                <li> <a href="carte.html" target="_blank">À propos</a></li>
+        
+                <li><a href="mailto:gansouvouhananiajulien@gmail.com" target="_blank">Nous écrire</a></li>
+        
+                <li class="close" onclick=" window.close()" > <p>quitter</p></li>
+            </ul>
+
+            <div class="menu1">
+                <div class="menu2"></div>
+                <div class="menu2"></div>
+                <div class="menu2"></div>
+                <div class="menu2"></div>
+                <div class="menu2"></div>
+            </div>
+
+        </header>
+    
+        <main id="main">
+            
+            <div class="ecran" id="ecran">
+
+                <div class="titre"> <h1>Trigonométrie</h1> </div>
+                
+                <input type="text" value="" id="cal" name="cal" placeholder="Faites votre calcul avec la machine de julien" />
+
+            </div>
+
+
+            <div class="trigo">
+
+                <div class="numbers">
+
+                <input type="button" value="AC" class="eff" onclick="cal.value= ' ' " />
+
+                <input type="button" value="0" onclick="cal.value += '0' " />
+        
+                <input type="button" value="." onclick="cal.value += '.' " />
+
+                <input type="button" value="7" onclick="cal.value += '7' " />
+
+                <input type="button" value="8" onclick="cal.value += '8'" />
+
+                <input type="button" value="9" onclick="cal.value += '9'" />
+                
+                <input type="button" value="4" onclick="cal.value += '4' " />
+    
+                <input type="button" value="5" onclick="cal.value += '5' " />
+    
+                <input type="button" value="6" onclick="cal.value += '6' " />
+
+                <input type="button" value="1" onclick="cal.value += '1' " />
+            
+                <input type="button" value="2" onclick="cal.value += '2' " />
+            
+                <input type="button" value="3" onclick="cal.value += '3' " />
+            
+                </div>
+
+
+                <div class="funct">
+                
+                <input type="button" value="sin" onclick="cal.value = Math.sin(transformeDegreRadian(eval(cal.value)))">
+                
+                <input type="button" value="cos" onclick="cal.value = Math.cos(transformeDegreRadian(eval(cal.value))) ">
+                
+                <input type="button" value="tan" onclick="cal.value = Math.tan(transformeDegreRadian(eval(cal.value))) ">
+
+                <input type="button" value="sin-¹" onclick=" cal.value = transformeRadianDegre(Math.asin(eval(cal.value)))">
+                
+                <input type="button" value="cos-¹" onclick="cal.value = transformeRadianDegre(Math.acos(eval(cal.value))) ">
+                
+                <input type="button" value="tan-¹" onclick=" cal.value = transformeRadianDegre(Math.atan(eval(cal.value))) ">
+
+                <input type="button" value="sinh" onclick="cal.value = Math.sinh(transformeDegreRadian(eval(cal.value)))">
+                
+                <input type="button" value="cosh" onclick="cal.value = Math.cosh(transformeDegreRadian(eval(cal.value)))">
+
+                <input type="button" value="tanh" onclick="cal.value = Math.tanh(transformeDegreRadian(eval(cal.value)))">
+
+                <input type="button" value="sinh-¹" onclick=" cal.value = transformeRadianDegre(Math.asinh(eval(cal.value)))">
+                
+                <input type="button" value="cosh-¹" onclick="cal.value = transformeRadianDegre(Math.acosh(eval(cal.value))) ">
+                
+                <input type="button" value="tanh-¹" onclick=" cal.value = transformeRadianDegre(Math.atanh(eval(cal.value))) ">
+
+                </div>
+
+            </div>
+
+        </main>
+        
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/10.0.0/math.min.js"></script>
+   
+    <script src="cal.js"></script>
+
+</body>
+</html>

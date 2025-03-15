@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Julcal-calculatrice en ligne</title>
+    <link rel="stylesheet" href="./cal.css">
+</head>
+
+<!--<body onload="alert('Bienvenue! vous pouvez utiliser notre machine pour faire tous vos calculs.')">
+-->
+<body>
+
+    <div class="caculator">
+    
+        <header>
+
+            <h1>Julcal</h1>
+
+            <div class="clock"></div>
+
+            <ul class="menu">
+                <li><h1>Julcal</h1></li> 
+
+                <li><a href="index.html">Calculatrice</a></li>
+                <li><a href="trigo.html">Trigonométrie</a></li>
+                <li><a href="den.html">Dénombrement</a></li>
+                <li><a href="complex.html">Nombres complexes</a></li>
+                <li><a href="fonction.html">Fonctions</a></li>
+                <li><a href="matrice.html">Matrices</a></li>
+                <li><a href="age.html">calcul d'âge</a></li>
+
+                <li> <a href="carte.html" target="_blank">À propos</a></li>
+        
+                <li><a href="mailto:gansouvouhananiajulien@gmail.com" target="_blank">Nous écrire</a></li>
+        
+                <li class="close" onclick=" window.close()" > <p>quitter</p></li>
+            </ul>
+
+            <div class="menu1">
+                <div class="menu2"></div>
+                <div class="menu2"></div>
+                <div class="menu2"></div>
+                <div class="menu2"></div>
+                <div class="menu2"></div>
+            </div>
+
+        </header>
+    
+        <main id="main">
+            
+            <div class="ecran" id="ecran">
+
+                <div class="titre"> <h1>Nombres complexes</h1> </div>
+                
+                <input type="text" value="" id="cal" name="cal" placeholder="Faites votre calcul avec la machine de julien" />
+
+            </div>
+
+                <div class="complex">
+
+                   <input type="text" id="complex" placeholder="Entrez votre nombre complexe (ex : 2 + 3i ou 4 - 5i):">
+
+                    <div class="enter">
+
+                        <input type="button" value="Conjugué de z" onclick="cal.value = conjugo(complex.value)">
+
+                        <input type="button" value="Module de z" onclick="cal.value = modulo(complex.value)" >
+                    
+                        <input type="button" value="argument de z" onclick="cal.value = argo(complex.value)">
+                    
+                    </div>
+                </div>
+    
+
+        </main>
+
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/10.0.0/math.min.js"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/mathjs@10.1.0/lib/browser/math.js"></script>
+
+    <script src="cal.js"></script>
+
+</body>
+</html>

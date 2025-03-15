@@ -1,0 +1,99 @@
+Une calculatrice de haut niveau doit offrir des fonctionnalités avancées permettant de traiter non seulement des calculs simples mais aussi des opérations mathématiques complexes. Voici les principales fonctions qu'une telle calculatrice devrait inclure :
+
+### 1. **Calculs de base**
+   - **Addition** (+)
+   - **Soustraction** (−)
+   - **Multiplication** (×)
+   - **Division** (÷)
+   - **Modulus** (reste de la division)
+
+### 2. **Fonctions trigonométriques**
+   - **Sinus** (sin)
+   - **Cosinus** (cos)
+   - **Tangente** (tan)
+   - **Cotangente** (cot)
+   - **Secante** (sec)
+   - **Cosécante** (csc)
+   - **Inverse trigonométrique** : arcsin, arccos, arctan, etc.
+   - **Conversion en degrés/radians**.
+
+### 3. **Fonctions exponentielles et logarithmiques**
+   - **Exponentielle** (exp) : \( e^x \)
+   - **Logarithme** (logarithme naturel, base 10, etc.)
+   - **Logarithme binaire** (log₂)
+   - **Puissance** (exponentiation \( a^b \))
+   - **Racine carrée** (√)
+   - **Racine n-ième** (racine cubique, racine 4ème, etc.)
+
+### 4. **Calculs avec les matrices**
+   - **Addition** et **soustraction** de matrices
+   - **Multiplication** de matrices
+   - **Inversion** d'une matrice
+   - **Déterminant** d'une matrice
+   - **Transpose** d'une matrice
+   - **Calcul des valeurs propres** (si applicable)
+   - **Résolution de systèmes linéaires** (utilisation de matrices pour résoudre des systèmes d'équations linéaires)
+
+### 5. **Calculs avec les nombres complexes**
+   - **Addition**, **soustraction**, **multiplication** et **division** de nombres complexes
+   - **Module** d'un nombre complexe
+   - **Argument** d'un nombre complexe
+   - **Forme trigonométrique** et **forme exponentielle** d'un nombre complexe
+   - **Conjugaison** d'un nombre complexe
+
+### 6. **Calcul différentiel et intégral**
+   - **Dérivée** (dérivée d'une fonction donnée)
+   - **Intégrale** (intégrale définie et indéfinie)
+   - **Calcul des limites** (limites à l'infini, limites en un point)
+   - **Séries de Taylor** (approximation de fonctions par des séries)
+
+### 7. **Résolution d'équations**
+   - **Équations polynomiales** (calcul des racines d'un polynôme)
+   - **Systèmes d'équations linéaires** (méthode de Gauss, etc.)
+   - **Équations différentielles**
+   - **Équations trigonométriques**
+   - **Équations exponentielles** et **logarithmiques**
+
+### 8. **Statistiques et probabilité**
+   - **Moyenne**, **médiane**, **mode**
+   - **Variance** et **écart-type**
+   - **Distributions** : normale, binomiale, Poisson, etc.
+   - **Tests d'hypothèses** : test t, test de chi carré, etc.
+   - **Régressions linéaire et non linéaire**
+
+### 9. **Fonctions avancées**
+   - **Séries et suites** : calcul de termes d'une suite (arithmétique, géométrique, etc.)
+   - **Transformation de Fourier** : pour le traitement du signal
+   - **Calcul de l'entropie** et d'autres mesures en théorie de l'information
+
+### 10. **Fonctions de gestion de variables**
+   - **Stockage de valeurs** : mémorisation de résultats pour une utilisation ultérieure
+   - **Calcul symbolique** : simplification d'expressions algébriques, factorisation
+   - **Évaluations numériques et symboliques** : permet de travailler avec des expressions non résolues ou d'effectuer des calculs numériques
+
+### 11. **Graphiques**
+   - **Graphiques 2D** (courbes de fonctions)
+   - **Graphiques 3D** (représentation de surfaces ou de courbes dans l'espace tridimensionnel)
+   - **Tracé paramétrique**, **polaires** et autres représentations complexes
+   - **Tracé de fonctions multiples** (superposition de plusieurs graphiques sur un même plan)
+
+### 12. **Résolution symbolique et algèbre**
+   - **Simplification** d'expressions algébriques
+   - **Factorisation** de polynômes
+   - **Calcul de racines** de polynômes
+   - **Développement** d'expressions algébriques
+
+### 13. **Calculs financiers et économiques**
+   - **Calcul de taux d'intérêt** (simple et composé)
+   - **Valeur actuelle nette (VAN)** et **taux de rentabilité interne (TRI)**
+   - **Calcul de prêts** : paiements mensuels, amortissements
+
+### 14. **Conversions d'unités**
+   - Conversion entre **unités de mesure** : longueur, masse, température, etc.
+   - Conversion entre **systèmes numériques** : binaire, octal, hexadécimal, etc.
+   
+### 15. **Mémoire et historique**
+   - **Mémoire** pour stocker des résultats temporaires
+   - **Historique** des calculs effectués pour une consultation facile
+
+Ces fonctionnalités permettent de rendre une calculatrice de haut niveau utile non seulement pour des calculs simples, mais aussi pour des applications scientifiques, techniques, économiques, et de programmation.

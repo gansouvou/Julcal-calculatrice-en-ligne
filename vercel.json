@@ -1,7 +1,13 @@
 {
     "routes":[
-        {"src":"/","dest":"/cal.html"},
-        {"src":"/carte","dest":"/carte.html"}
+        {"src":"/","dest":"/index.html"},
+        {"src":"/age","dest":"/age.html"},
+        {"src":"/carte","dest":"/carte.html"},
+        {"src":"/complex","dest":"/complex.html"},
+        {"src":"/den","dest":"/den.html"},
+        {"src":"/fonction","dest":"/fonction.html"},
+        {"src":"/matrix","dest":"/matrix.html"},
+        {"src":"/trigo","dest":"/trigo.html"}
     ]
 
 }
